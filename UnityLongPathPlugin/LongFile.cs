@@ -7,6 +7,7 @@ using System.Text;
 using System;
 
 
+// from https://stackoverflow.com/a/39534444
 namespace UnityLongPathPlugin
 {
     public static class LongFile
