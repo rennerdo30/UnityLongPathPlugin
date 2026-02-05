@@ -1,7 +1,5 @@
 ﻿using HarmonyLib;
 using System;
-using System.Diagnostics;
-using static HarmonyLib.AccessTools;
 
 namespace UnityLongPathPlugin
 {
@@ -14,7 +12,7 @@ namespace UnityLongPathPlugin
         {
             Plugin.Log.LogInfo($"starting patching...");
 
-            var harmony = new Harmony("dev.renner.patch");
+            var harmony = new Harmony("dev.renner.unity-long-path-plugin");
             harmony.PatchAll();
         }
 
@@ -51,7 +49,7 @@ namespace UnityLongPathPlugin
             }
             catch (Exception ex)
             {
-                Plugin.Log.LogError($"error during move: '{ex.Message}");
+                Plugin.Log.LogError($"error during move: '{ex.Message}'");
                 Plugin.Log.LogError(ex.ToString());
                 return true;
             }

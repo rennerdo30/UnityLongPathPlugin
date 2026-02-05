@@ -16,9 +16,11 @@ namespace UnityLongPathPlugin
 
         public static bool Exists(string path)
         {
+            if (string.IsNullOrEmpty(path)) return false;
             if (path.Length < MAX_PATH) return System.IO.File.Exists(path);
             var attr = NativeMethods.GetFileAttributesW(GetWin32LongPath(path));
-            return (attr != NativeMethods.INVALID_FILE_ATTRIBUTES && ((attr & NativeMethods.FILE_ATTRIBUTE_ARCHIVE) == NativeMethods.FILE_ATTRIBUTE_ARCHIVE));
+            return attr != NativeMethods.INVALID_FILE_ATTRIBUTES &&
+                   (attr & NativeMethods.FILE_ATTRIBUTE_DIRECTORY) != NativeMethods.FILE_ATTRIBUTE_DIRECTORY;
         }
 
         public static void Delete(string path)
