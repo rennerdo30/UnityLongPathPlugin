@@ -40,7 +40,7 @@ jobs:
         run: dotnet build UnityLongPathPlugin.sln --configuration Release --no-restore -p:ContinuousIntegrationBuild=true
 
       - name: Upload plugin artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: UnityLongPathPlugin
           path: UnityLongPathPlugin/bin/Release/net46/UnityLongPathPlugin.dll

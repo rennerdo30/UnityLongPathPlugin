@@ -35,7 +35,7 @@ jobs:
           Compress-Archive -Path artifacts/UnityLongPathPlugin.dll -DestinationPath artifacts/UnityLongPathPlugin-${{ github.ref_name }}.zip -Force
 
       - name: Upload workflow artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: UnityLongPathPlugin-${{ github.ref_name }}
           path: artifacts/UnityLongPathPlugin-${{ github.ref_name }}.zip
